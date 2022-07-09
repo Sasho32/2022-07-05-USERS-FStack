@@ -1,0 +1,25 @@
+@mixin flex-box($dir, $wrap, $gap, $jc, $ai) {
+    display: flex;
+    flex-direction: $dir;
+    flex-wrap: $wrap;
+    gap: $gap;
+    justify-content: $jc;
+    align-items: $ai;
+}
+
+@mixin center-absolute {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin toogle-element($hide: false) {
+    @if $hide {
+        visibility: hidden;
+        opacity: 0;
+    } @else {
+        visibility: visible;
+        opacity: 1;
+    }
+}

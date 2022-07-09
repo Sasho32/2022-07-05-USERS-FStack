@@ -1,0 +1,266 @@
+@import './mixins';
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    position: relative;
+    min-height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(to right, #ffd89b, #19547b);
+    @include flex-box(column, nowrap, 100px, center, center);
+    display: none;
+
+    div#nav-bar {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        @include flex-box(row, nowrap, 0, space-between, center);
+        background-color: #333;
+        color: #fff;
+        padding: 10px 0;
+
+        h1 {
+            font-size: 1.5em;
+            margin-left: 10px;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+    }
+
+    div#add-container {
+        margin-top: 100px;
+        background-color: #fff;
+        width: 350px;
+        min-height: 450px;
+        position: relative;
+        border-radius: 50px;
+        overflow: hidden;
+
+        h1#add-user-heading {
+            position: absolute;
+            width: 100%;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        form {
+            position: absolute;
+            width: 100%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -39%);
+            @include flex-box(column, nowrap, 0, center, center);
+
+            div[class$='field'] {
+                position: relative;
+                width: 90%;
+                margin-bottom: 40px;
+                border-bottom: 1px solid silver;
+
+                input {
+                    width: 100%;
+                    border: none;
+                    outline: none;
+                    padding: 7px 0;
+
+                    &:focus ~ span.border-span::before {
+                        width: 100%;
+                    }
+                    &:focus ~ label,
+                    &:valid ~ label {
+                        left: 0;
+                        top: -5px;
+                        color: #00b9fb;
+                    }
+                }
+
+                label {
+                    transition: 0.5s;
+                    color: #adadad;
+                    position: absolute;
+                    top: 50%;
+                    left: 5px;
+                    transform: translateY(-50%);
+                }
+
+                span.border-span::before {
+                    content: '';
+                    width: 0;
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    height: 2px;
+                    background-color: #00b9fb;
+                    transition: 0.5s;
+                }
+            }
+
+            div.gender {
+                margin: 10px 0 30px 0;
+                width: 90%;
+                text-align: right;
+            }
+
+            button {
+                width: 90%;
+                color: #fff;
+                background-color: #00b9fb;
+                padding: 5px 15px;
+                border: 2px solid;
+                border-radius: 10px;
+                font-size: 1em;
+                font-weight: bold;
+                transition: 0.5s;
+                cursor: pointer;
+
+                &:hover {
+                    border-color: #00b9fb;
+                }
+            }
+        }
+    }
+
+    h1#count-heading {
+        color: #333;
+        text-align: center;
+    }
+
+    #wrapper.has-users {
+        margin-left: 20px;
+        margin-top: 100px;
+        @include flex-box(row, wrap, 0, flex-start, center);
+        row-gap: 100px;
+        width: 100vw;
+
+        .user-wrapper {
+            width: 300px;
+
+            .user-container {
+                &.male {
+                    background-image: linear-gradient(
+                        to bottom right,
+                        #314755,
+                        #26a0da
+                    );
+                }
+                &.female {
+                    background-image: linear-gradient(
+                        to bottom right,
+                        #ff6e7f,
+                        #bfe9ff
+                    );
+                }
+                position: relative;
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                border: 2px solid #333;
+
+                h1.username-heading {
+                    @include center-absolute;
+                    font-size: 20px;
+                    font-weight: 600;
+                    width: 100%;
+                    text-align: center;
+                    overflow: hidden;
+                    color: #fff;
+                }
+
+                input {
+                    @include center-absolute;
+                    font-size: 20px;
+                    font-weight: 600;
+                    background-color: transparent;
+                    border: none;
+                    outline: none;
+                    width: 80%;
+                    text-align: left;
+                }
+
+                div.user-id {
+                    position: absolute;
+                    text-align: center;
+                    width: 20px;
+                    height: 20px;
+                    background-color: #fff;
+                    border-radius: 50%;
+                    padding: 5px;
+                }
+
+                .edit-container {
+                    width: 50%;
+                    height: 80%;
+                    position: absolute;
+                    right: 10%;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    @include flex-box(column, nowrap, 10px, center, stretch);
+                    transition: 0.8s;
+
+                    img {
+                        position: absolute;
+                        z-index: 19;
+                        width: 30px;
+                        height: 30px;
+                        top: 0;
+                        right: 0;
+                        transform: translateX(130%);
+                        cursor: pointer;
+                    }
+
+                    div[class$='button'] {
+                        @include toogle-element(true);
+                        text-align: center;
+                        transition: 0.4s;
+
+                        &#edit-button {
+                            color: transparent;
+                        }
+                        &#delete-button {
+                            color: transparent;
+                        }
+                    }
+
+                    &.active {
+                        div[class$='button'] {
+                            @include toogle-element();
+                            font-weight: bold;
+
+                            &.edit-button {
+                                color: green;
+
+                                &:hover {
+                                    background-color: green;
+                                }
+                            }
+                            &.delete-button {
+                                color: red;
+
+                                &:hover {
+                                    background-color: red;
+                                }
+                            }
+
+                            &:hover {
+                                color: #fff;
+                                padding: 4px;
+                                cursor: pointer;
+                            }
+                        }
+
+                        transform: translate(130%, -50%);
+                    }
+                }
+            }
+        }
+    }
+}

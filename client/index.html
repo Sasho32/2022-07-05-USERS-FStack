@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link rel="icon" href="./imgs/fav-icon.png"> 
+    <link rel="stylesheet" href="./styles/styles.css">
+    <script type="module" src="./scripts/main-page/index.js" defer></script>
+</head>
+<body>
+    <div id="nav-bar">
+        <h1>USERS LIST</h1>
+        <a href="./users.html">Get users</a>        
+    </div>
+    <div id="add-container">
+        <h1 id="add-user-heading">Add user</h1>
+        <form autocomplete="off">
+            <div class="email-field">
+                <input type="email" name="email" id="emailField" required>
+                <label>Email</label>
+                <span class="border-span"></span>
+            </div>
+            <div class="username-field">
+                <input type="text" name="username" id="usernameField" required>
+                <label>Username</label>
+                <span class="border-span"></span>
+            </div>
+            <div class="password-field">
+                <input type="password" name="password" id="passwordField" required>
+                <label>Password</label>
+                <span class="border-span"></span>
+            </div>
+            <div class="gender">
+                <input type="radio" name="gender" value="male" required>Male
+                <input type="radio" name="gender" value="female" required>Female
+            </div>
+            <button id="add-btn">Create</button>
+        </form>
+    </div>
+    <h1 id="count-heading">0 users currentlly added</h1>
+</body>
+</html>
