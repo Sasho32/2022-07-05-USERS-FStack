@@ -7,7 +7,7 @@
 
 body {
     position: relative;
-    min-height: 100vh;
+    // min-height: 100vh;
     font-family: 'Montserrat', sans-serif;
     background: linear-gradient(to right, #ffd89b, #19547b);
     @include flex-box(column, nowrap, 100px, center, center);
