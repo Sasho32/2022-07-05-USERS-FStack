@@ -2,14 +2,15 @@ import getUsers from './get-users.js';
 import createUser from './create-user.js';
 
 async function main() {
-    document.body.style.display = 'block';
-    document.body.style.position = 'static';
+    document.body.style.display = 'flex';
 
     const { userList, count } = await getUsers();
 
     if (count) {
         const noUsersHeading = document.querySelector('h1#no-users-heading');
         noUsersHeading.remove();
+
+        document.body.style.justifyContent = 'flex-start';
 
         userList.forEach(user => createUser(user));
     }

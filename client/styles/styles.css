@@ -5,6 +5,7 @@
 
 body {
   position: relative;
+  min-height: 100vh;
   font-family: 'Montserrat', sans-serif;
   background: linear-gradient(to right, #ffd89b, #19547b);
   display: flex;

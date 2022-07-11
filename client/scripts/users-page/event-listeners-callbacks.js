@@ -81,7 +81,7 @@ export async function deleteCb(userContainer, id) {
             method: 'DELETE',
         });
 
-        userContainer.remove();
+        userContainer.closest('div.user-wrapper').remove();
 
         if (!document.querySelector('#wrapper').childElementCount)
             window.location.reload();
