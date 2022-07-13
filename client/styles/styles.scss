@@ -135,7 +135,6 @@ body {
     }
 
     #wrapper.has-users {
-        margin-left: 20px;
         margin-top: 100px;
         @include flex-box(row, wrap, 0, flex-start, center);
         row-gap: 100px;
@@ -143,6 +142,7 @@ body {
 
         .user-wrapper {
             width: 300px;
+            margin-left: 20px;
 
             .user-container {
                 &.male {
@@ -208,7 +208,6 @@ body {
 
                     img {
                         position: absolute;
-                        z-index: 19;
                         width: 30px;
                         height: 30px;
                         top: 0;
